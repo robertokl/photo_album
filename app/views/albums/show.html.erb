@@ -1,0 +1,14 @@
+<p>
+  <b>Nome:</b>
+  <%=h @album.name %>
+</p>
+
+<%= @album.photos.size %>
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>
+
+<p>
+  <b>Fotos deste album:</b>
+  <%= render :partial => "photos/photos_list", :object => @album.photos %>
+</p>

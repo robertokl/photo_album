@@ -1,0 +1,33 @@
+<%= javascript_include_tag :defaults %>
+
+<table width="100%">
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <th>Nome</th>
+          <th>Album</th>
+          <th>Longitude</th>
+          <th>Latitude</th>
+        </tr>
+
+      <% for photo in photos_list %>
+        <tr>
+          <td><%=h photo.title %></td>
+          <td><%= link_to photo.album.name, photo.album %></td>
+          <td><%=h photo.long %></td>
+          <td><%=h photo.lat %></td>
+          <td><%= link_to_remote 'Show', :update => "photo", :url => photo, :method => :GET %></td>
+          <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+          <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+      </table>
+    </td>
+    <td>
+      <div id="photo" />
+    </td>
+  </tr>
+</table>
+<br />
+

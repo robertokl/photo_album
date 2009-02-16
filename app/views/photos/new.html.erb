@@ -1,0 +1,37 @@
+<h1>New photo</h1>
+
+<%= error_messages_for :photo %>
+
+
+<% form_for(@photo, :url => { :action => :create, :album_id => @photo.album.id }, :html => {:multipart => "true"}) do |f| %>
+  <p>
+    <b>Album</b><br />
+    <%= @photo.album.name %>
+  </p>
+
+  <p>
+    <b>Titulo</b><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <b>Arquivo</b><br />
+    <%= f.file_field :file %>
+  </p>
+
+  <p>
+    <b>Longitude</b><br />
+    <%= f.text_field :long %>
+  </p>
+
+  <p>
+    <b>Latitude</b><br />
+    <%= f.text_field :lat %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', photos_path %>

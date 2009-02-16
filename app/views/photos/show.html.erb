@@ -1,0 +1,30 @@
+<p>
+  <b>Title:</b>
+  <%=h @photo.title %>
+</p>
+
+<p>
+  <b>long:</b>
+  <%=h @photo.long %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%=h @photo.lat %>
+</p>
+
+<p>
+  <b>Imagem:</b>
+  <%= link_to image_tag(thumb_url (:album_name => @photo.album.name, :specs => ["#{@photo.file_name}"], :w => 100, :h => 100)),  "../images/#{@photo.image_path}" %>
+</p>
+
+<p>
+  <%= link_to_remote "<", :update => "photo", :url => photo_path(@photo.id-1), :method => :GET %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to_remote ">", :update => "photo", :url => photo_path(@photo.id+1), :method => :GET %>
+</p>
+
+<p>
+  <%= link_to 'Edit', edit_photo_path(@photo) %> |
+  <%= link_to "Nova Foto", new_photo_to_album_path(:album_id => @photo.album.id) %>
+</p>
