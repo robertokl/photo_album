@@ -5,6 +5,10 @@ class Photo < ActiveRecord::Base
   belongs_to :album
   validates_associated :album
 
+  def <=> otherPhoto
+    self.title <=> otherPhoto.title
+  end
+
   def file= file
     @file = file
   end

@@ -3,6 +3,10 @@ class Album < ActiveRecord::Base
   validates_uniqueness_of :name
   has_many :photos
 
+  def <=> otherAlbum
+    self.name <=> otherAlbum.name
+  end
+
   alias ar_save save
 
   def save

@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.xml
   def index
-    @albums = Album.find(:all)
+    @albums = Album.find(:all).sort
 
     respond_to do |format|
       format.html # index.html.erb

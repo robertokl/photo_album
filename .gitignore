@@ -1,2 +1,4 @@
 *.log
 public/images/*
+database.yml
+enviroment.rb

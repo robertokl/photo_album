@@ -10,5 +10,5 @@
 
 <p>
   <b>Fotos deste album:</b>
-  <%= render :partial => "photos/photos_list", :object => @album.photos %>
+    <%= render :partial => "photos/photos_list", :object => @album.photos.sort %>
 </p>

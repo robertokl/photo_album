@@ -14,14 +14,14 @@
 </p>
 
 <p>
-  <b>Imagem:</b>
-  <%= link_to image_tag(thumb_url (:album_name => @photo.album.name, :specs => ["#{@photo.file_name}"], :w => 100, :h => 100)),  "../images/#{@photo.image_path}" %>
+  <%= link_to_remote "<", :update => "photo", :url => photo_path(@prev_photo), :method => :GET %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to_remote ">", :update => "photo", :url => photo_path(@next_photo), :method => :GET %>
 </p>
 
 <p>
-  <%= link_to_remote "<", :update => "photo", :url => photo_path(@photo.id-1), :method => :GET %>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <%= link_to_remote ">", :update => "photo", :url => photo_path(@photo.id+1), :method => :GET %>
+  <b>Imagem:</b>
+  <%= link_to image_tag(thumb_url (:album_name => @photo.album.name, :specs => ["#{@photo.file_name}"], :w => 100, :h => 100)),  "../images/#{@photo.image_path}" %>
 </p>
 
 <p>
