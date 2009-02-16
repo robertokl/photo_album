@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.check_ftp "albums/check_ftp", :controller => "albums", :action => "check_ftp"
   map.new_photo_to_album "photos/:album_id/new", :controller => "photos", :action => "new"
+  map.album_photo "albums/:album_id/show/:photo_num", :controller => "photos", :action => "show"
   map.connect "photos/:album_id", :controller => "photos", :action => "create", :conditions => {:method => :post}
   map.thumb "thumb/:album_name/*specs", :controller => "thumb", :action => "index"
 

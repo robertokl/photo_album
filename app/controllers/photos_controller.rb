@@ -13,9 +13,12 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.xml
   def show
-    @photo = Photo.find(params[:id])
-    @next_photo = params[:next_photo]
-    @prev_photo = params[:prev_photo]
+    photos = Photo.all :offset => params[:photo_num], :limit => 3
+    @photo = photos[1]
+    @next_photo = photos[0].id
+    @prev_photo = photos[2].id
+    puts "oiiiiiiiiiiiiiiiiiiiii " + params[:photo_num]
+    @photo_num = params[:photo_num]
 
     respond_to do |format|
       format.html # show.html.erb
