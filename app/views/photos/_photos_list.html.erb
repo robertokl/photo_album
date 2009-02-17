@@ -33,7 +33,7 @@
     <td><%= link_to photo.album.name, photo.album %></td>
     <td><%=h photo.long %></td>
     <td><%=h photo.lat %></td>
-    <td><%= link_to_remote 'Show', :update => "photo", :url => album_photo_path(:album_id => photo.album.id, :photo_num => index - 1), :method => :GET %></td>
+    <td><%= link_to_remote 'Show', :update => "photo", :url => album_photo_path(:album_id => photo.album.id, :photo_num => index), :method => :GET %></td>
     <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
     <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
