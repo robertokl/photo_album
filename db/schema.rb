@@ -9,21 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090208192633) do
+ActiveRecord::Schema.define(:version => 20090217215927) do
 
   create_table "albums", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "photos", :force => true do |t|
     t.string   "title"
-    t.float    "long"
-    t.float    "lat"
-    t.integer  "album_id"
+    t.string   "long"
+    t.string   "lat"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "album_id"
   end
 
 end

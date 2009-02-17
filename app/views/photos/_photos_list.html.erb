@@ -12,11 +12,15 @@
     return ScrollTop;
   }
   window.onscroll = function() {
-    document.getElementById("photo").style.top = getScroll() + 150 + "px";
+    document.getElementById("details").style.top = getScroll() + 150 + "px";
   }
 </script>
 
-<div id="photo" style="position:absolute; top:150px; left:600px;">
+<div id="details" style="position:absolute; top:150px; left:600px;">
+  <div id="photo">
+  </div>
+  <div id="map">
+  </div>
 </div>
 
 <table>
