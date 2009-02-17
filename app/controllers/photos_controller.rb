@@ -19,7 +19,6 @@ class PhotosController < ApplicationController
       offset = 0
       limit = 2
     end
-    puts "oiii " + num.to_s + " tchauu " + limit.to_s 
     photos = Photo.all :order => :title, :offset => offset, :limit => limit
     @photo = photos[1]
     @next_photo = photos[0].id
