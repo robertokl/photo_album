@@ -15,7 +15,8 @@ class PhotosController < ApplicationController
   def show
     num = params[:photo_num].to_i
     offset = num <= 0 ? 0 : num
-    photos = Photo.all :order => :title, :offset => offset, :limit => 1
+    album = Album.find params[:album_id]
+    photos = album.photos.all(:order => :title, :offset => offset, :limit => 1)
     @photo = photos[0]
     @photo_num = num
 
