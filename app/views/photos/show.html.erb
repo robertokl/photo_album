@@ -1,3 +1,4 @@
+
 <p>
   <b>Title:</b>
   <%=h @photo.title %>
@@ -21,10 +22,12 @@
 
 <p>
   <b>Imagem:</b>
-  <%= link_to image_tag(thumb_url (:album_name => @photo.album.name, :specs => ["#{@photo.file_name}"], :w => 100, :h => 100)),  "../images/#{@photo.image_path}" %>
+  <% t_url = thumb_url (:album_name => @photo.album.name, :specs => ["#{@photo.file_name}"], :w => 100, :h => 100) %>
+  <%= link_to image_tag(t_url),  "../images/#{@photo.image_path}" %>
 </p>
 
 <p>
   <%= link_to 'Edit', edit_photo_path(@photo) %> |
-  <%= link_to "Nova Foto", new_photo_to_album_path(:album_id => @photo.album.id) %>
+  <%= link_to "Nova Foto", new_photo_to_album_path(:album_id => @photo.album.id) %> |
+  <%= link_to_function 'Mapa', "loadGMap('#{@photo.lat}','#{@photo.long}','#{t_url}')" %>
 </p>

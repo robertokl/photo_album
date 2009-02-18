@@ -14,15 +14,10 @@ class PhotosController < ApplicationController
   # GET /photos/1.xml
   def show
     num = params[:photo_num].to_i
-    limit = num >= Photo.all.size - 1 ? 2 : 3
-    if num < 0
-      offset = 0
-      limit = 2
-    end
-    photos = Photo.all :order => :title, :offset => offset, :limit => limit
-    @photo = photos[1]
-    @next_photo = photos[0].id
-    @prev_photo = photos[2].id
+    offset = num <= 0 ? 0 : num
+    album = Album.find params[:album_id]
+    photos = album.photos.all(:order => :title, :offset => offset, :limit => 1)
+    @photo = photos[0]
     @photo_num = num
 
     respond_to do |format|

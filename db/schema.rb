@@ -12,18 +12,18 @@
 ActiveRecord::Schema.define(:version => 20090217215927) do
 
   create_table "albums", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
   end
 
   create_table "photos", :force => true do |t|
     t.string   "title"
     t.string   "long"
     t.string   "lat"
+    t.integer  "album_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "album_id"
   end
 
 end
