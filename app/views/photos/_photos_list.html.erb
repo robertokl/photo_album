@@ -44,22 +44,17 @@
 
 <table>
   <tr>
-    <th>Nome</th>
-    <th>Album</th>
-    <th>Longitude</th>
-    <th>Latitude</th>
-  </tr>
-
 <% photos_list.each_with_index do |photo, index| %>
-  <tr>
-    <td><%=h photo.title %></td>
-    <td><%= link_to photo.album.name, photo.album %></td>
-    <td><%=h photo.long %></td>
-    <td><%=h photo.lat %></td>
-    <td><%= link_to_remote 'Show', :update => "photo", :url => album_photo_path(:album_id => photo.album.id, :photo_num => index), :method => :GET %></td>
-    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-    <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      <% t_url = thumb_url (:album_name => photo.album.name, :specs => ["#{photo.file_name}"], :w => 100, :h => 100) %>
+      <%= link_to_remote image_tag(t_url), :update => "photo", :url => album_photo_path(:album_id => photo.album.id, :photo_num=> index), :method => :GET %></td>
+      <td>
+    </td>
+    <%- if (index + 1) % 6 == 0 and index != 0 %>
   </tr>
-<% end %>
+  <tr>
+    <%- end %>
+<% end -%>
+  </tr>
 </table>
 <br />
