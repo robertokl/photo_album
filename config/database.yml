@@ -36,7 +36,7 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: photo_album_production
-  username: root
-  password: 
-  socket: /var/run/mysqld/mysqld.sock
+  database: robertokl
+  username: robertokl
+  password: aaa123
+  host: mysql01.robertokl.tecnologia.ws

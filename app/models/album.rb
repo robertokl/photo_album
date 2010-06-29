@@ -17,12 +17,12 @@ class Album < ActiveRecord::Base
 
   def check_ftp
     images = Dir.new "public/images/#{self.name}"
-    puts "public/images/#{self.name}"
+    logger.error "public/images/#{self.name}"
     images.each do |i|
         next if file_is_not_jpg i
         p = Photo.new :album => self, :title => i[0..(i.length - 5)]
-        puts p.save
-        p.errors.each {|a,b| puts a + "-" + b}
+        logger.error p.save
+        p.errors.each {|a,b| logger.error a + "-" + b}
     end
   end
 

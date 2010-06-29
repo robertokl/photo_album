@@ -1,7 +1,7 @@
 class Photo < ActiveRecord::Base
 
   validates_presence_of :title
-  validates_uniqueness_of :title
+  validates_uniqueness_of :title, :scope => :album_id
   belongs_to :album
   validates_associated :album
 
