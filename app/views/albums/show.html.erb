@@ -2,6 +2,9 @@
   <b>Nome:</b>
   <%=h @album.name %>
 </p>
+<p>
+  <a href="<%= slideshow_path(@album) %>">Slideshow</a>
+</p>
 
 <%= @album.photos.size %>
 

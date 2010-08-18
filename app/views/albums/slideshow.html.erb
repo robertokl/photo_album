@@ -1,0 +1,16 @@
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+
+<script type="text/javascript"> 
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'scrollVert' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});
+</script>
+<div class="slideshow">
+  <% @album.photos.each do |photo| %>
+    <%= image_tag("../images/#{photo.image_path}", :height => "500px;") %>
+  <% end %>
+</div>

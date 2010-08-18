@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.slideshow "albums/slideshow/:id", :controller => "albums", :action => "slideshow"
   map.check_ftp "albums/check_ftp", :controller => "albums", :action => "check_ftp"
   map.new_photo_to_album "photos/:album_id/new", :controller => "photos", :action => "new"
   map.album_photo "albums/:album_id/show/:photo_num", :controller => "photos", :action => "show"

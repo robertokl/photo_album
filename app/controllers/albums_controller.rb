@@ -95,4 +95,7 @@ class AlbumsController < ApplicationController
     redirect_to(albums_url)
   end
 
+  def slideshow
+    @album = Album.find(params[:id])
+  end
 end
